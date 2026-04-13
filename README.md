@@ -26,22 +26,28 @@ The dataset consists of 70,000 grayscale images (28x28 pixels) representing digi
 
 ## Key Findings
 
-- CNN achieved the highest accuracy (~99%) but required significant training time
-- Random Forest provided the best balance between accuracy (~96.6%) and efficiency
+- CNN achieved the highest accuracy (~99%) but required significant training time (~12 minutes)
+- Random Forest provided the best balance between accuracy (~96.6%) and efficiency (~9 seconds)
 - Simpler models (e.g. QDA) struggled with visually similar digits
 
 ---
 
 ## Methodology
 
-1. Data split into training, validation, and test sets  
-2. Standardisation of pixel values  
-3. PCA applied (retaining 95% variance) for selected models  
+1. Data split into training, validation, and test sets using stratified sampling  
+2. Standardisation of pixel values to improve model stability  
+3. PCA applied (retaining 95% variance, reducing dimensionality from 784 to ~326 features) for selected models  
 4. Model training and evaluation using:
    - Accuracy
    - F1-score
    - Training time  
 5. Confusion matrices used for error analysis  
+
+---
+
+## Example Result
+
+![Random Forest Confusion Matrix](random_forest_confusion_matrix.png)
 
 ---
 
@@ -66,4 +72,4 @@ The dataset consists of 70,000 grayscale images (28x28 pixels) representing digi
 
 ## Summary
 
-This project demonstrates the trade-off between model performance and computational efficiency, highlighting when simpler models may outperform more complex approaches in practical settings.
+This project demonstrates the trade-off between model performance and computational efficiency, highlighting how simpler models such as Random Forest can provide near state-of-the-art performance with significantly lower computational cost compared to more complex models like CNNs.
